@@ -1,8 +1,6 @@
-
-
 set nu
 syntax enable
-set cindent
+set smartindent
 set binary
 
 set incsearch
@@ -30,22 +28,17 @@ autocmd BufWritePre * :%s/\s\+$//e
 "autocmd ColorScheme * highlight Constant ctermfg=199 guifg=#1900ff
 "autocmd ColorScheme * highlight Function ctermfg=190 guifg=#1900ff
 "autocmd ColorScheme * highlight Identifier ctermfg=1 guifg=#1900ff
-colorscheme default
-colorscheme monokai
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
-highlight SpecialKey ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
+colorscheme u-monokai
 
 "color separation at line 80
 au FileType c let &colorcolumn=join(range(81,999),",")
 au FileType c hi ColorColumn ctermbg=235 guibg=#2c2d27
-au FileType c hi ColorColumn ctermbg=NONE guibg=NONE
+""au FileType c hi ColorColumn ctermbg=NONE guibg=NONE
 
 au FileType python let &colorcolumn=join(range(81,999),",")
 au FileType python hi ColorColumn ctermbg=235 guibg=#2c2d27
 
-hi cursorline cterm=underline ctermbg=NONE
+""hi cursorline cterm=underline ctermbg=NONE
 
 "-------------------------------------------------------------------------------
 "" aut_save
