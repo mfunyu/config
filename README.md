@@ -3,7 +3,7 @@
 ## for 42 cluster
 ```
 #install 42Homebrew
-curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
+curl -fsSL https://raw.githubusercontent.com/mfunyu/config/main/42homebrew_install.sh?token=AONLMXML2UN7JDWAZDBQV3DBZRJQ6 | zsh
 
 #valgrind
 brew tap LouisBrunner/valgrind
