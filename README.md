@@ -26,10 +26,12 @@ brew install gh
 - activity monitor -> memoryで残量確認 
 ```
 cd /Users/mfunyu/Library/Caches
-ls -l | sort -k5n
+ls -lR | sort -k5n
 rm -Rf vscode-cpptools
 go clean -cache -testcache
 rm -R pip
 rm -Rf /Users/mfunyu/Library/Caches/Google/Chrome/Default/Code\ Cache
 rm -Rf /Users/mfunyu/Library/Caches/Google/Chrome/Default/Cache
+rm -Rf Homebrew/downloads
+rm -Rf Homebrew/go_cache/*
 ```
