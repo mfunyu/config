@@ -23,7 +23,13 @@ brew install gh
 ```
 
 # no space left on device
-- activity monitor -> memoryで残量確認 
+- activity monitor -> memoryで残量確認
+- `df -h` : 残りHDD
+- `df -i` : 残りinode
+```
+du -x -m -d 5 / 2> /dev/null | awk '$1 >= 1000{print}'
+rm -rf /Library/Caches/* ~/Library/Caches/* 2> /dev/null
+```
 ```
 cd /Users/mfunyu/Library/Caches
 ls -lR | sort -k5n
