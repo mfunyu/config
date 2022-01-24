@@ -13,7 +13,7 @@ rm -rf $HOME/goinfre/.brew
 git clone --depth=1 https://github.com/Homebrew/brew $HOME/goinfre/.brew
 
 # Create .brewconfig script in home directory 
-cat > $HOME/.brewconfig.zsh <<EOL
+cat > $HOME/goinfre/.brewconfig.zsh <<EOL
 # HOMEBREW CONFIG
 
 # Add brew to path
