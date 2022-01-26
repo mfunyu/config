@@ -13,6 +13,11 @@ brew install gh
 brew install telnet
 
 ```
+### キーボード速度設定
+```
+defaults write -g KeyRepeat -int 1
+defaults write -g InitialKeyRepeat -int 11
+```
 
 ## shared
 ```
