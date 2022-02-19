@@ -5,12 +5,12 @@
 #install 42Homebrew
 curl -fsSL https://raw.githubusercontent.com/mfunyu/config/main/42homebrew_install.sh | zsh
 
+brew install gh
+brew install telnet
+
 #valgrind
 brew tap LouisBrunner/valgrind
 brew install --HEAD LouisBrunner/valgrind/valgrind
-
-brew install gh
-brew install telnet
 
 ```
 ### キーボード速度設定
