@@ -1,48 +1,60 @@
-# Installations
+# 42 cluster iMac Setup
 
-## for 42 cluster
+## Install 42Homebrew
+#### under goinfre (recommended)
+
+- goinfre下 (local storage) に42Homebrewをインストールする
+- 以後brewでインストールするものは全てgoinfreに保存される（他のPCでは共有されない）
 ```
-#install 42Homebrew
 curl -fsSL https://raw.githubusercontent.com/mfunyu/config/main/42homebrew_install.sh | zsh
-
-brew install gh
-brew install telnet
-
-#valgrind
+```
+#### under HOME
+- HOME下 (shared storage) に42Homebrewをインストールする
+- 以後brewでインストールするものは全てのPCで共有される（メモリ容量が不足する可能性が高い）
+```
+curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
+```
+## Install valgrind
+```
 brew tap LouisBrunner/valgrind
 brew install --HEAD LouisBrunner/valgrind/valgrind
-
-```
-### キーボード速度設定
-```
-defaults write -g KeyRepeat -int 1
-defaults write -g InitialKeyRepeat -int 11
 ```
 
-## shared
-```
-#oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# "no space left on device"
 
-brew install gh
-```
+"メモリ容量が不足しています"のエラー時への対処
 
-# no space left on device
+## Status Check
+現在のメモリ使用量を確認する
 - activity monitor -> memoryで残量確認
 - `df -h` : 残りHDD
 - `df -i` : 残りinode
+
+## Clear all cashes
+- 消去可能なキャッシュを一括削除してメモリ容量を確保する
+- 容量が平均1Gほど解放される
+- おそらく作業に影響はでないがその保証はない
 ```
-du -x -m -d 5 / 2> /dev/null | awk '$1 >= 1000{print}'
-rm -rf /Library/Caches/* ~/Library/Caches/* 2> /dev/null
+rm·-Rfv·/Library/Caches/*·~/Library/Caches/*·2>·/dev/null
 ```
+
+## Alias sweep
+- 上記のコマンドを`sweep`にエイリアス登録して実行しやすくする
+
+### Install
+```sh
+# Add sweep alias in your .zshrc if not already present
+if ! grep -q "# Clear all cash for storage spaces" $HOME/.zshrc
+then
+cat >> $HOME/.zshrc <<EOL
+
+# Clear all cash for storage spaces
+alias·sweep="rm·-Rfv·/Library/Caches/*·~/Library/Caches/*·2>·/dev/null"
+EOL
+fi
 ```
-cd /Users/mfunyu/Library/Caches
-ls -lR | sort -k5n
-rm -Rf vscode-cpptools
-go clean -cache -testcache
-rm -R pip
-rm -Rf /Users/mfunyu/Library/Caches/Google/Chrome/Default/Code\ Cache
-rm -Rf /Users/mfunyu/Library/Caches/Google/Chrome/Default/Cache
-rm -Rf Homebrew/downloads
-rm -Rf Homebrew/go_cache/*
+### Usage
+
+```
+sweep
 ```
