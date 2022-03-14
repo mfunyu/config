@@ -24,8 +24,12 @@ brew install --HEAD LouisBrunner/valgrind/valgrind
 
 "メモリ容量が不足しています"のエラー時への対処
 
+## Recommendation
+- https://shop.intra.42.fr/ から`Home 5GB 増量`を10walletで購入する
+- 合計10Gになるので、goinfreも上手く併用すれば今後困ることはほとんどなくなる
+
 ## Status Check
-現在のメモリ使用量を確認する
+現在のメモリ使用量の確認方法
 - activity monitor -> memoryで残量確認
 - `df -h` : 残りHDD
 - `df -i` : 残りinode
