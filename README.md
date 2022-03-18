@@ -53,7 +53,7 @@ then
 cat >> $HOME/.zshrc <<EOL
 
 # Clear all cash for storage spaces
-alias sweep="rm·-Rfv·/Library/Caches/*·~/Library/Caches/*·2>·/dev/null"
+alias sweep="rm -Rfv /Library/Caches/* ~/Library/Caches/* 2> /dev/null"
 EOL
 fi
 ```
