@@ -39,7 +39,7 @@ brew install --HEAD LouisBrunner/valgrind/valgrind
 - 容量が平均1Gほど解放される
 - おそらく作業に影響はでないがその保証はない
 ```
-rm·-Rfv·/Library/Caches/*·~/Library/Caches/*·2>·/dev/null
+rm -Rfv /Library/Caches/* ~/Library/Caches/* 2> /dev/null
 ```
 
 ## Alias sweep
