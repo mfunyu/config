@@ -13,6 +13,9 @@ ln -s $HOME/goinfre/home/.zshrc ~/.zshrc
 ln -s $HONE/goinfre/home/.vimrc ~/.vimrc
 ln -s $HOME/goinfre/home/.vim ~/.vim
 
+source ~/.vimrc
+source ~/.zshrc
+
 #--------------------Homebrew------------------#
 # install brew
 if [ ! -e $HOME/goinfre/.brew ]; then
