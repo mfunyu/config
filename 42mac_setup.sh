@@ -1,5 +1,6 @@
-#!/bin/bash -e
+#!/bin/zsh -e
 #-------------------MenuBar----------------------#
+echo "Setting up Menu bar ..."
 ## display textinput icon
 defaults write com.apple.systemuiserver \
   "NSStatusItem Visible com.apple.menuextra.textinput" 1
@@ -15,6 +16,7 @@ defaults write com.apple.systemuiserver \
 killall SystemUIServer
 
 #-------------------Dock----------------------#
+echo "Setting up Dock ..."
 defaults write com.apple.dock orientation left
 defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock largesize -int 96
@@ -30,6 +32,7 @@ defaults write com.apple.dock persistent-apps -array
 killall Dock
 
 #-------------------Others----------------------#
+echo "Setting up the rest ..."
 ## screen shot prefix
 defaults write com.apple.screencapture name "SS"
 
@@ -46,6 +49,7 @@ killall Finder
 
 
 #-------------------Install brew------------------#
+echo "Setting up Dock ..."
 # install brew
 if [ ! -e $HOME/goinfre/.brew ]; then
 curl -fsSL https://raw.githubusercontent.com/mfunyu/config/main/42homebrew_install.sh | zsh
