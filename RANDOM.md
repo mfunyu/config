@@ -1,6 +1,15 @@
 
 # For myself
 
+## 42 iMac Setup
+
+```
+git clone git@github.com:mfunyu/config.git
+cd config
+./42mac_install.sh
+./42mac_setup.sh
+```
+
 ### キーボード速度設定
 ```
 defaults write -g KeyRepeat -int 1
