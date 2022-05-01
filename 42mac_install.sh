@@ -7,8 +7,7 @@ fi
 
 #--------------------.rc files------------------#
 git clone https://github.com/mfunyu/home.git $HOME/goinfre/home
-rm ~/.zshrc ~/.vimrc
-rm -Rf ~/.vim/
+rm ~/.zshrc ~/.vimrc ~/.vim/
 ln -s $HOME/goinfre/home/.zshrc ~/.zshrc
 ln -s $HOME/goinfre/home/.vimrc ~/.vimrc
 ln -s $HOME/goinfre/home/.vim ~/.vim
