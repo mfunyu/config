@@ -1,5 +1,19 @@
 #!/bin/zsh
 
+#-------------------oh-my-zsh------------------#
+if [ ! -e $ZSH ]; then
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+#--------------------.rc files------------------#
+git clone https://github.com/mfunyu/home.git $HOME/goinfre/home
+rm ~/.zshrc ~/.vimrc
+rm -Rf ~/.vim/
+ln -s $HOME/goinfre/home/.zshrc ~/.zshrc
+ln -s $HONE/goinfre/home/.vimrc ~/.vimrc
+ln -s $HOME/goinfre/home/.vim ~/.vim
+
+#--------------------Homebrew------------------#
 # install brew
 if [ ! -e $HOME/goinfre/.brew ]; then
 curl -fsSL https://raw.githubusercontent.com/mfunyu/config/main/42homebrew_install.sh | zsh
@@ -12,13 +26,6 @@ source ~/.zshrc
 
 brew install gh
 brew install tree
+brew install vim
 
-#oh-my-zsh
-if [ ! -e $ZSH ]; then
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
 
-git clone https://github.com/mfunyu/home.git
-rm -Rf home/.git
-mv home/.* $HOME
-rm -Rf home
