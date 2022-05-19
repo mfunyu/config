@@ -11,6 +11,11 @@ defaults write com.apple.systemuiserver \
   "NSStatusItem Visible com.apple.menuextra.volume" 1
 defaults write com.apple.systemuiserver \
   menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
+## display bluetooth icon
+defaults write com.apple.systemuiserver \
+  "NSStatusItem Visible com.apple.menuextra.bluetooth" 1
+defaults write com.apple.systemuiserver \
+  menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
 
 # reload MenuBar
 killall SystemUIServer
