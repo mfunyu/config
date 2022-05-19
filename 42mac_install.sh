@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 #-------------------oh-my-zsh------------------#
-if [ ! -e $ZSH ]; then
+if [ "$ZSH" != "/Users/mfunyu/.oh-my-zsh" ]; then
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
