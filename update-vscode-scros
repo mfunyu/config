@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# ------------------------------ #
+#           Simon Cros           #
+# ------------------------------ #
+
+set -e
+
+echo "Please, check if VSCode is not running. Press any key to continue..."
+read -srn 1
+
+archive="/tmp/vscode-$(date +"%Y%m%d%H%M%S").tar.gz"
+download_url="https://code.visualstudio.com/sha/download?build=stable&os=linux-x64"
+output="$HOME/sgoinfre/apps/VSCode"
+
+echo "Downloading source archive..."
+wget -q --show-progress -O $archive "$download_url"
+
+mkdir -p $HOME/sgoinfre/apps
+mkdir -p $HOME/apps
+rm -rf "$output"
+echo "Extracting to $output..."
+mkdir "$output" && tar -xf "$archive" -C "$output" --strip-components 1 --checkpoint=.100
+echo " Finished !"
+ln -s $HOME/sgoinfre/apps/VSCode $HOME/apps/VSCode
+
+if ! command -v code &> /dev/null
+then
+    echo ''
+    echo 'Add the following line in your .zshrc or .bashrc to add `code` command to your path.'
+    echo "export PATH=\"\$HOME/apps/VSCode/bin:\$PATH\""
+fi
+
+if [[ "$0`pwd`" == *"sgoinfre"* ]]; then
+    echo ''
+    echo 'If you want an easyer access to `update-vscode`, copy this file to a folder accessible from your path.'
+    echo 'mkdir -p ~/bin; cp /sgoinfre/goinfre/Perso/scros/Public/utils/update-vscode ~/bin/update-vscode'
+fi
