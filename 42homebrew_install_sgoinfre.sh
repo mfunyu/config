@@ -28,7 +28,7 @@ mkdir -p \$HOMEBREW_TEMP
 
 # If NFS session
 # Symlink Locks folder in /tmp
-if df -T autofs,nfs \$HOME 2&>1 1>/dev/null
+if df -T autofs,nfs \$HOME > /dev/null 2>&1
 then
   HOMEBREW_LOCKS_TARGET=/tmp/\$USER/Homebrew/Locks
   HOMEBREW_LOCKS_FOLDER=\$HOME/sgoinfre/.brew/var/homebrew
