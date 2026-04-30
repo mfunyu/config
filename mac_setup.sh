@@ -64,6 +64,14 @@ source ~/.zshrc
 
 #-------------------Apps------------------#
 brew install --cask iterm2
+brew install --cask visual-studio-code
+brew install --cask discord
+brew install --cask claude
+brew install --cask deepl
+brew install --cask notion
+brew install --cask anki
+brew install --cask conductor
+brew install --cask docker
 
 #-------------------Custom Dock------------------#
 brew install dockutil
