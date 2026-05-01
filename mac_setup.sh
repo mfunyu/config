@@ -2,29 +2,23 @@
 #-------------------MenuBar----------------------#
 echo "Setting up Menu bar ..."
 ## display textinput icon
-defaults write com.apple.systemuiserver \
-  "NSStatusItem Visible com.apple.menuextra.textinput" 1
-defaults write com.apple.systemuiserver \
-  menuExtras -array-add "/System/Library/CoreServices/Menu Extras/TextInput.menu"
-## display volume icon
-defaults write com.apple.systemuiserver \
-  "NSStatusItem Visible com.apple.menuextra.volume" 1
-defaults write com.apple.systemuiserver \
-  menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
-## display bluetooth icon
-defaults write com.apple.systemuiserver \
-  "NSStatusItem Visible com.apple.menuextra.bluetooth" 1
-defaults write com.apple.systemuiserver \
-  menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+defaults write com.apple.TextInputMenu visible -bool true
+## display volume icon (18 = show in menu bar)
+defaults -currentHost write com.apple.controlcenter Sound -int 18
+defaults write com.apple.controlcenter "NSStatusItem Visible Sound" -bool true
+## display bluetooth icon (18 = show in menu bar)
+defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
+defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
 
 # reload MenuBar
 killall SystemUIServer
+killall ControlCenter
 
 #-------------------Dock----------------------#
 echo "Setting up Dock ..."
 defaults write com.apple.dock orientation left
-defaults write com.apple.dock magnification -bool true
-defaults write com.apple.dock largesize -int 96
+defaults write com.apple.dock magnification -bool false
+defaults write com.apple.dock tilesize -int 48
 defaults write com.apple.dock autohide -bool true
 
 ## delete all icons
@@ -68,7 +62,6 @@ brew install --cask visual-studio-code
 brew install --cask discord
 brew install --cask claude
 brew install --cask deepl
-brew install --cask notion
 brew install --cask anki
 brew install --cask conductor
 brew install --cask docker
@@ -76,11 +69,8 @@ brew install --cask docker
 #-------------------Custom Dock------------------#
 brew install dockutil
 
-dockutil --add /Applications/System\ Preferences.app
-dockutil --add /Applications/Launchpad.app
 dockutil --add /Applications/Google\ Chrome.app
 dockutil --add /Applications/iTerm.app
 dockutil --add /Applications/Visual\ Studio\ Code.app
 dockutil --add /Applications/Discord.app
 dockutil --add /Applications/Slack.app
-dockutil --add /Applications/Calendar.app

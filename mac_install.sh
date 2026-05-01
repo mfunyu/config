@@ -33,3 +33,7 @@ source ~/.zshrc
 brew install gh
 brew install tree
 brew install vim
+
+gh auth login
+# let git use gh auth
+gh auth setup-git
